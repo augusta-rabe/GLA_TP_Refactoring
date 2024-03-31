@@ -8,14 +8,16 @@ public class Humain implements Consommation {
     protected String prenom;
     protected int age;
     protected List<Humain> amis; // Liste d'amis
+    protected int dureeAmitie; // Durée de l'amitié en jours
 
     public Humain(String nom, String prenom, int age) {
         this.nom = nom;
         this.prenom = prenom;
         this.age = age;
         this.amis = new ArrayList<>();
+        this.dureeAmitie = 100; // Valeur par défaut
     }
-
+    
     // Getters and setters
     public String getNom() {
         return nom;
@@ -62,18 +64,20 @@ public class Humain implements Consommation {
     }
 
 
-    // Méthode pour ajouter un ami
-    public void ami(Humain ami) {
+    // Méthode pour ajouter un ami avec durée de l'amitié
+    public void ami(Humain ami, int dureeAmitie) {
         this.amis.add(ami);
         ami.amis.add(this); // Pour ajouter l'humain courant à la liste d'amis de l'ami
-        System.out.println(this.prenom + " est maintenant ami avec " + ami.getPrenom());
+        this.dureeAmitie = dureeAmitie;
+        ami.dureeAmitie = dureeAmitie;
+        System.out.println(this.prenom + " est maintenant ami avec " + ami.getPrenom() + " pour " + dureeAmitie + " jours.");
     }
 
     // Méthode pour afficher les amis
     public void afficherAmis() {
         System.out.println("Liste d'amis de " + this.prenom + ":");
         for (Humain ami : amis) {
-            System.out.println("- " + ami.getPrenom());
+            System.out.println("- " + ami.getPrenom() + " (pour " + ami.getDureeAmitie() + " jours)");
         }
     }
 
@@ -87,18 +91,18 @@ public class Humain implements Consommation {
 
     // Méthode main pour tester
     public static void main(String[] args) {
-        Homme h1 = new Homme("Doe", "John", 30);
-        Homme h2 = new Homme("Smith", "Alex", 28);
+        Homme h = new Homme("Doe", "John", 30);
+        Femme f = new Femme("Smith", "Jane", 28);
         
-        // Ajouter une amitié entre h1 et h2
-        h1.ami(h2);
+        // Déclarer que l'homme est ami de la femme pour 200 jours (valeur non-défaut)
+        h.ami(f, 200);
         
-        // Afficher la liste d'amis de h1 et h2
-        System.out.println("\nAmis de " + h1.getPrenom() + ":");
-        h1.afficherAmis();
+        // Afficher la liste d'amis de l'homme et de la femme
+        System.out.println("Amis de " + h.getPrenom() + ":");
+        h.afficherAmis();
         
-        System.out.println("\nAmis de " + h2.getPrenom() + ":");
-        h2.afficherAmis();
+        System.out.println("\nAmis de " + f.getPrenom() + ":");
+        f.afficherAmis();
     }
     
 }
