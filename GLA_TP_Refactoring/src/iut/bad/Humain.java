@@ -43,7 +43,16 @@ public class Humain {
         System.out.println("Âge: " + age);
     }
     */
-    
+    // Méthode manger()
+    public void manger() {
+        System.out.println("Je suis en train de manger.");
+    }
+
+    // Méthode boire()
+    public void boire() {
+        System.out.println("Je suis en train de boire.");
+    }
+
     // Méthode toString() pour afficher les détails
     @Override
     public String toString() {
@@ -57,11 +66,13 @@ public class Humain {
         Homme h = new Homme("Doe", "John", 30);
         Femme f = new Femme("Doe", "Jane", 25);
         
-        // Appel de la méthode toString()
-        System.out.println("Détails de l'homme :");
-        System.out.println(h.toString());
+        // Appel des méthodes manger() et boire()
+        System.out.println("Action de l'homme :");
+        h.manger();
+        h.boire();
         
-        System.out.println("\nDétails de la femme :");
-        System.out.println(f.toString());
+        System.out.println("\nAction de la femme :");
+        f.manger();
+        f.boire();
     }
 }
