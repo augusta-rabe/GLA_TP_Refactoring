@@ -1,14 +1,19 @@
 package iut.bad;
 
-public class Humain implements Consommation{
+import java.util.ArrayList;
+import java.util.List;
+
+public class Humain implements Consommation {
     protected String nom;
     protected String prenom;
     protected int age;
+    protected List<Humain> amis; // Liste d'amis
 
     public Humain(String nom, String prenom, int age) {
         this.nom = nom;
         this.prenom = prenom;
         this.age = age;
+        this.amis = new ArrayList<>();
     }
 
     // Getters and setters
@@ -56,6 +61,22 @@ public class Humain implements Consommation{
         System.out.println("Je suis en train de boire.");
     }
 
+
+    // Méthode pour ajouter un ami
+    public void ami(Humain ami) {
+        this.amis.add(ami);
+        ami.amis.add(this); // Pour ajouter l'humain courant à la liste d'amis de l'ami
+        System.out.println(this.prenom + " est maintenant ami avec " + ami.getPrenom());
+    }
+
+    // Méthode pour afficher les amis
+    public void afficherAmis() {
+        System.out.println("Liste d'amis de " + this.prenom + ":");
+        for (Humain ami : amis) {
+            System.out.println("- " + ami.getPrenom());
+        }
+    }
+
     // Méthode toString() pour afficher les détails
     @Override
     public String toString() {
@@ -66,17 +87,18 @@ public class Humain implements Consommation{
 
     // Méthode main pour tester
     public static void main(String[] args) {
-        Homme h = new Homme("Doe", "John", 30);
-        Femme f = new Femme("Doe", "Jane", 25);
+        Homme h1 = new Homme("Doe", "John", 30);
+        Homme h2 = new Homme("Smith", "Alex", 28);
         
-        // Appel des méthodes manger() et boire() à partir de l'interface Consommation
-        System.out.println("Action de l'homme :");
-        h.manger();
-        h.boire();
+        // Ajouter une amitié entre h1 et h2
+        h1.ami(h2);
         
-        System.out.println("\nAction de la femme :");
-        f.manger();
-        f.boire();
+        // Afficher la liste d'amis de h1 et h2
+        System.out.println("\nAmis de " + h1.getPrenom() + ":");
+        h1.afficherAmis();
+        
+        System.out.println("\nAmis de " + h2.getPrenom() + ":");
+        h2.afficherAmis();
     }
     
 }
