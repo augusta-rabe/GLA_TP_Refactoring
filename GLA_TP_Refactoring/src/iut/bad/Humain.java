@@ -1,6 +1,6 @@
 package iut.bad;
 
-public class Humain {
+public class Humain implements Consommation{
     protected String nom;
     protected String prenom;
     protected int age;
@@ -43,12 +43,15 @@ public class Humain {
         System.out.println("Âge: " + age);
     }
     */
-    // Méthode manger()
+    
+    // Méthode manger() de l'interface Consommation
+    @Override
     public void manger() {
         System.out.println("Je suis en train de manger.");
     }
 
-    // Méthode boire()
+    // Méthode boire() de l'interface Consommation
+    @Override
     public void boire() {
         System.out.println("Je suis en train de boire.");
     }
@@ -66,7 +69,7 @@ public class Humain {
         Homme h = new Homme("Doe", "John", 30);
         Femme f = new Femme("Doe", "Jane", 25);
         
-        // Appel des méthodes manger() et boire()
+        // Appel des méthodes manger() et boire() à partir de l'interface Consommation
         System.out.println("Action de l'homme :");
         h.manger();
         h.boire();
@@ -75,4 +78,5 @@ public class Humain {
         f.manger();
         f.boire();
     }
+    
 }
