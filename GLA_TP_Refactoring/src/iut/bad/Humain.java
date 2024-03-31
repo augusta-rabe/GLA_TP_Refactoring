@@ -43,6 +43,7 @@ public class Humain {
     }
 
     // Méthode main pour tester
+    
     public static void main(String[] args) {
         Humain h = new Homme("Doe", "John", 30);
         Humain f = new Femme("Doe", "Jane", 25);
