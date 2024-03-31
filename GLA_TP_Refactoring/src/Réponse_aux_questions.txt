@@ -1,0 +1,17 @@
+
+	
+				REPONSE AUX QUESTIONS :
+				
+	9. Que se passe-t-il si vous voulez déplacer la méthode toString() vers les sous classes ?
+	
+Si nous décidons de retirer  la méthode toString() de la classe Humain et la déplacer dans les sous-classes Homme et Femme, 
+c'est-à-dire qu'il n'y a plus de cette méthode dans la classe Humain, chaque sous-classe devrait alors avoir sa propre méthode toString() qui définit comment l'objet doit être affiché :
+	toStringHomme() et toStringFemme() par exemple.
+
+Cela permet une personnalisation complète de la représentation textuelle de chaque type d'humain (Homme et Femme) sans avoir à modifier la classe Humain.
+
+Cette peut être utile lorsque chaque sous-classe a des détails spécifiques à afficher dans la méthode toString().
+
+Les méthodes toStringHomme() et toStringFemme() dans les sous-classes sont maintenant responsables de l'affichage des détails spécifiques à chaque type d'humain.
+
+Et dans la méthode main() de la classe Humain, nous devons maintenant appeler les méthodes toStringHomme() et toStringFemme() des instances Homme et Femme respectivement pour obtenir et afficher leurs détails.
