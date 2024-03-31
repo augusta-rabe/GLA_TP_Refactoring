@@ -36,18 +36,27 @@ public class Humain {
         this.age = age;
     }
 
+    // Méthode details() pour afficher les détails
+    public void details() {
+        System.out.println("Nom: " + nom);
+        System.out.println("Prénom: " + prenom);
+        System.out.println("Âge: " + age);
+    }
+    
     // Méthode toString() pour l'affichage
     @Override
     public String toString() {
         return "Humain [nom=" + nom + ", prenom=" + prenom + ", age=" + age + "]";
     }
 
-    // Méthode main pour tester
     
+    // Méthode main pour tester
     public static void main(String[] args) {
         Humain h = new Homme("Doe", "John", 30);
         Humain f = new Femme("Doe", "Jane", 25);
-        System.out.println(h.toString());
-        System.out.println(f.toString());
+
+        // Appel de la méthode details()
+        h.details();
+        f.details();
     }
 }
