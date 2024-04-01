@@ -12,7 +12,7 @@ public class Femme extends Humain {
         Femme f = new Femme("Smith", "Jane", 28);
         
         // Déclarer que l'homme est ami de la femme
-        h.ami(f);
+        h.ami(f, 30);
         
         // Afficher la liste d'amis de l'homme et de la femme
         System.out.println("Amis de " + h.getPrenom() + ":");
