@@ -42,6 +42,15 @@ public class Humain implements Consommation {
     public void setAge(int age) {
         this.age = age;
     }
+    
+    public int getDureeAmitie() {
+        return dureeAmitie;
+    }
+
+    public void setDureeAmitie(int dureeAmitie) {
+        this.dureeAmitie = dureeAmitie;
+    }
+    
 
    /* // Méthode details() pour afficher les détails
     public void details() {
